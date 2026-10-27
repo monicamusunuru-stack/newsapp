@@ -1,0 +1,159 @@
+.site-header { border-bottom: 1px solid var(--border); background: var(--bg); }
+.header-inner { min-height: 78px; padding: 0 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.brand { display: inline-flex; align-items: center; gap: 10px; color: var(--text-h); font-family: Georgia, serif; font-size: 20px; font-weight: 700; text-decoration: none; white-space: nowrap; }
+.brand-mark { display: grid; width: 32px; height: 32px; place-items: center; color: #fff; background: #d45136; font-family: Georgia, serif; font-size: 22px; }
+.main-nav { display: flex; align-items: center; gap: 24px; }
+.main-nav a { color: var(--text); font-size: 14px; text-decoration: none; }
+.main-nav a:hover { color: var(--text-h); }
+.header-actions { display: flex; align-items: center; gap: 10px; }
+.account-greeting { color: var(--text); font-size: 13px; white-space: nowrap; }
+.auth-notice { padding: 8px 20px; color: #b42318; background: #fff1f0; font-size: 13px; text-align: center; }
+.icon-button { display: grid; width: 38px; height: 38px; padding: 0; place-items: center; color: var(--text-h); background: transparent; border: 0; cursor: pointer; }
+.icon-button:hover { background: var(--accent-bg); }
+.subscribe-button { padding: 10px 16px; color: #fff; background: var(--text-h); border: 0; font-size: 13px; font-weight: 700; cursor: pointer; }
+.menu-button { display: none; }
+@media (max-width: 760px) {
+  .header-inner { min-height: 68px; padding: 0 18px; }
+  .main-nav { display: none; position: absolute; z-index: 2; top: 68px; right: 0; left: 0; padding: 18px; flex-direction: column; align-items: stretch; gap: 0; background: var(--bg); border-bottom: 1px solid var(--border); box-shadow: var(--shadow); }
+  .main-nav.is-open { display: flex; }
+  .main-nav a { padding: 14px 0; border-bottom: 1px solid var(--border); }
+  .menu-button { display: grid; }
+  .header-actions .icon-button:not(.menu-button) { display: none; }
+  .subscribe-button { padding: 9px 11px; }
+  .brand { font-size: 17px; }
+}
+
+.subscribe-backdrop {
+  position: fixed;
+  z-index: 10;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(20, 18, 17, 0.62);
+}
+
+.subscribe-dialog {
+  position: relative;
+  width: min(100%, 440px);
+  max-height: min(90vh, 760px);
+  overflow-y: auto;
+  box-sizing: border-box;
+  padding: 36px;
+  color: var(--text);
+  background: var(--bg);
+  border-top: 4px solid #d45136;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+  text-align: left;
+}
+
+.subscribe-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
+
+.subscribe-kicker {
+  margin: 0 0 8px;
+  color: #b6422d;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.subscribe-dialog h2 {
+  margin: 0 32px 6px 0;
+  color: var(--text-h);
+  font-family: Georgia, serif;
+  font-size: 28px;
+  line-height: 1.15;
+}
+
+.subscribe-description,
+.subscribe-success > p:not(.subscribe-kicker) {
+  margin: 0 0 22px;
+  font-size: 14px;
+}
+
+.subscribe-form {
+  display: grid;
+  gap: 14px;
+}
+
+.subscribe-form label {
+  display: grid;
+  gap: 6px;
+  color: var(--text-h);
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.subscribe-form input,
+.subscribe-form select {
+  width: 100%;
+  min-height: 42px;
+  box-sizing: border-box;
+  padding: 9px 11px;
+  color: var(--text-h);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  font: inherit;
+  font-size: 14px;
+}
+
+.subscribe-form input:focus,
+.subscribe-form select:focus {
+  border-color: #d45136;
+  outline: 2px solid rgba(212, 81, 54, 0.2);
+}
+
+.subscribe-submit {
+  min-height: 44px;
+  padding: 10px 16px;
+  color: #fff;
+  background: #b6422d;
+  border: 0;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.subscribe-submit:hover {
+  background: #963722;
+}
+
+.subscribe-submit:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.auth-switch {
+  margin-top: 18px;
+  font-size: 13px;
+}
+
+.auth-switch button {
+  padding: 0;
+  color: #b6422d;
+  background: none;
+  border: 0;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.subscribe-error {
+  color: #b42318;
+  font-size: 13px;
+}
+
+.subscribe-success .subscribe-submit {
+  width: 100%;
+}
+
+@media (max-width: 480px) {
+  .subscribe-backdrop { padding: 12px; }
+  .subscribe-dialog { padding: 30px 22px 24px; }
+}
